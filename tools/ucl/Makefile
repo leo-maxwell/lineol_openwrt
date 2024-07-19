@@ -23,6 +23,8 @@ HOST_CFLAGS +=-std=gnu89
 define Host/Prepare
 	$(Host/Prepare/Default)
 	mkdir -p $(STAGING_DIR_HOST)/include/ucl
+	curl -o $(HOST_BUILD_DIR)/acconfig/config.guess "http://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.guess;hb=HEAD"
+	curl -o $(HOST_BUILD_DIR)/acconfig/config.sub "http://git.savannah.gnu.org/gitweb/?p=config.git;a=blob_plain;f=config.sub;hb=HEAD"
 endef
 
 define Host/Configure
